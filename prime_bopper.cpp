@@ -9,8 +9,8 @@ using namespace std;
 
 string bopString[] = {"beep", "boop", "bip", "bop", "bing", "bong", "blam", "blom", "wham", "bam", "thank-you", "ma'am"};
 
-void beeper(int number);
-void loopBeep(int number);
+void bopper(int number);
+void loopBop(int number);
 bool isPrime(int number);
 
 int main()
@@ -20,13 +20,13 @@ int main()
 	cout << "Enter your number:" << endl;
 	cin >> number;
 
-	beeper(number);
-	//loopBeep(number);
+	bopper(number);
+	//loopBop(number);
 
 	return 0;
 }
 
-void beeper(int number)
+void bopper(int number)
 {
 	int primeCounter = 0;
 	string primeBopString[number + 1];
@@ -58,11 +58,11 @@ void beeper(int number)
 	cout << endl;
 }
 
-void loopBeep(int number)
+void loopBop(int number)
 {
 	for(int i = 2; i <= number; i++)
 	{
-		beeper(i);
+		bopper(i);
 	}
 }
 
