@@ -11,7 +11,7 @@ string bopString[] = {"beep", "boop", "bip", "bop", "bing", "bong", "blam", "blo
 
 void beeper(int number);
 void loopBeep(int number);
-bool isPrime(int prime);
+bool isPrime(int number);
 
 int main()
 {
