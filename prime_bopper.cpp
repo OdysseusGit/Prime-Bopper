@@ -29,26 +29,27 @@ int main()
 void bopper(int number)
 {
 	int primeCounter = 0;
-	string primeBopString[number + 1];
 
 	for(int i = 2; i <= number; i++)
 	{
 		if(isPrime(i))
 		{
+			string outputString;
+			
 			//sizeof gives size of array in bytes
 			if(primeCounter >= sizeof(bopString)/sizeof(*bopString))
 			{
-				primeBopString[i] = "aling";
+				outputString = "aling";
 			}
 			else
 			{
-				primeBopString[i] = bopString[primeCounter];
+				outputString = bopString[primeCounter];
 				primeCounter++;
 			}
 
 			while(number % i == 0)
 			{
-				cout << primeBopString[i];
+				cout << outputString;
 				number = number/i;
 			}
 
@@ -72,8 +73,14 @@ bool isPrime(int number)
 	{
 		return false;
 	}
+	
+	//small optimisation to better mimic Eratostheme's sieve
+	if(number % 2 == 0 && 2 <= sqrt(number))
+	{
+		return false;
+	}
 
-	for(int i = 2; i <= sqrt(number); i++)
+	for(int i = 2; i <= sqrt(number); i+=2)
 	{
 		if(number % i == 0)
 		{
