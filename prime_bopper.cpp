@@ -35,7 +35,7 @@ void bopper(int number)
 		if(isPrime(i))
 		{
 			string outputString;
-			
+
 			//sizeof gives size of array in bytes
 			if(primeCounter >= sizeof(bopString)/sizeof(*bopString))
 			{
@@ -72,7 +72,7 @@ bool isPrime(int number)
 	{
 		return false;
 	}
-	
+
 	//small optimisation to better mimic Eratosthenes' sieve
 	if(number % 2 == 0 && 2 <= sqrt(number))
 	{
