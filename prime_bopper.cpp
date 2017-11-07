@@ -52,7 +52,6 @@ void bopper(int number)
 				cout << outputString;
 				number = number/i;
 			}
-
 		}
 	}
 
@@ -74,13 +73,13 @@ bool isPrime(int number)
 		return false;
 	}
 	
-	//small optimisation to better mimic Eratostheme's sieve
+	//small optimisation to better mimic Eratosthenes' sieve
 	if(number % 2 == 0 && 2 <= sqrt(number))
 	{
 		return false;
 	}
 
-	for(int i = 2; i <= sqrt(number); i+=2)
+	for(int i = 3; i <= sqrt(number); i+=2)
 	{
 		if(number % i == 0)
 		{
