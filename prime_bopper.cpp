@@ -3,6 +3,7 @@ Novel implementation of the unique factorisation of prime numbers to output humo
 */
 
 #include <iostream>
+#include <string>
 #include <cmath> //import sqrt function
 
 using namespace std;
