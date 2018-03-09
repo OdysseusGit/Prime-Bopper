@@ -6,9 +6,7 @@ Novel implementation of the unique factorisation of prime numbers to output humo
 #include <string>
 #include <cmath> //import sqrt function
 
-using namespace std;
-
-string bopString[] = {"beep", "boop", "bip", "bop", "bing", "bong", "blam", "blom", "wham", "bam", "thank-you", "ma'am"};
+std::string bopString[] = { "beep", "boop", "bip", "bop", "bing", "bong", "blam", "blom", "wham", "bam", "thank-you", "ma'am" };
 
 void bopper(int number);
 void loopBop(int number);
@@ -16,13 +14,23 @@ bool isPrime(int number);
 
 int main()
 {
-	int number;
+	bool done = false;
+	while (!done)
+	{
+		std::string inputString;
+		std::cout << "Enter your number:" << std::endl;
+		std::cin >> inputString;
 
-	cout << "Enter your number:" << endl;
-	cin >> number;
-
-	bopper(number);
-	//loopBop(number);
+		if (inputString == "quit")
+		{
+			done = true;
+		}
+		else
+		{
+			bopper(stoi(inputString));
+			//loopBop(stoi(inputString));
+		}
+	}
 
 	return 0;
 }
@@ -31,14 +39,14 @@ void bopper(int number)
 {
 	int primeCounter = 0;
 
-	for(int i = 2; i <= number; i++)
+	for (int i = 2; i <= number; i++)
 	{
-		if(isPrime(i))
+		if (isPrime(i))
 		{
-			string outputString;
+			std::string outputString;
 
 			//sizeof gives size of array in bytes
-			if(primeCounter >= sizeof(bopString)/sizeof(*bopString))
+			if (primeCounter >= sizeof(bopString) / sizeof(*bopString))
 			{
 				outputString = "aling";
 			}
@@ -48,20 +56,20 @@ void bopper(int number)
 				primeCounter++;
 			}
 
-			while(number % i == 0)
+			while (number % i == 0)
 			{
-				cout << outputString;
-				number = number/i;
+				std::cout << outputString;
+				number = number / i;
 			}
 		}
 	}
 
-	cout << endl;
+	std::cout << std::endl;
 }
 
 void loopBop(int number)
 {
-	for(int i = 2; i <= number; i++)
+	for (int i = 2; i <= number; i++)
 	{
 		bopper(i);
 	}
@@ -69,20 +77,20 @@ void loopBop(int number)
 
 bool isPrime(int number)
 {
-	if(number <= 1)
+	if (number <= 1)
 	{
 		return false;
 	}
 
 	//small optimisation to better mimic Eratosthenes' sieve
-	if(number % 2 == 0 && 2 <= sqrt(number))
+	if (number % 2 == 0 && 2 <= sqrt(number))
 	{
 		return false;
 	}
 
-	for(int i = 3; i <= sqrt(number); i+=2)
+	for (int i = 3; i <= sqrt(number); i += 2)
 	{
-		if(number % i == 0)
+		if (number % i == 0)
 		{
 			return false;
 		}
